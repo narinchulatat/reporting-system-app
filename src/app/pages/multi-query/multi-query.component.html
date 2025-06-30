@@ -1,0 +1,15 @@
+<div class="p-4">
+  <h2 class="text-xl font-bold mb-4">แสดงหลายรายงาน</h2>
+  <div class="mb-4">
+    <label *ngFor="let q of queries" class="block">
+      <input type="checkbox" [value]="q.id" [(ngModel)]="selectedQueries" [checked]="selectedQueries.includes(q.id)" />
+      {{ q.name }}
+    </label>
+    <button (click)="runQueries()" class="mt-2 bg-green-500 text-white px-4 py-2 rounded">แสดงผล</button>
+  </div>
+
+  <div *ngFor="let r of results" class="border rounded p-2 mb-4">
+    <h3 class="font-bold">รายงาน ID: {{ r.id }}</h3>
+    <pre class="overflow-x-auto">{{ r.data | json }}</pre>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="p-4">
+  <h2 class="text-xl font-bold mb-4">ตัวกรองรายงาน</h2>
+  <div class="grid gap-3 md:grid-cols-2">
+    <select [(ngModel)]="filter.hospital" class="border p-2 rounded">
+      <option value="">เลือกโรงพยาบาล</option>
+      <option *ngFor="let h of hospitals" [value]="h">{{ h }}</option>
+    </select>
+
+    <select [(ngModel)]="filter.category" class="border p-2 rounded">
+      <option value="">เลือกหมวดหมู่</option>
+      <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
+    </select>
+
+    <input type="date" [(ngModel)]="filter.startDate" class="border p-2 rounded" />
+    <input type="date" [(ngModel)]="filter.endDate" class="border p-2 rounded" />
+  </div>
+
+  <button (click)="submit()" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded">ค้นหา</button>
+</div>

@@ -1,0 +1,14 @@
+<div class="p-4">
+  <h2 class="text-xl font-bold mb-4">จัดการ Queries</h2>
+  <div class="mb-4">
+    <input [(ngModel)]="newQuery.name" placeholder="ชื่อ Query" class="border p-2 mr-2 rounded" />
+    <input [(ngModel)]="newQuery.query_sql" placeholder="SQL Template" class="border p-2 mr-2 rounded w-1/2" />
+    <button (click)="addQuery()" class="bg-blue-600 text-white px-4 py-2 rounded">เพิ่ม</button>
+  </div>
+  <ul>
+    <li *ngFor="let query of queries" class="mb-2">
+      {{ query.name }} - {{ query.query_sql }}
+      <button (click)="deleteQuery(query.id)" class="ml-2 text-red-500">ลบ</button>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,21 @@
+<div class="p-4">
+  <h2 class="text-xl font-bold mb-4">สิทธิ์การใช้งาน</h2>
+  <table class="w-full border">
+    <thead>
+      <tr class="bg-gray-100 text-left">
+        <th class="p-2">ชื่อผู้ใช้</th>
+        <th class="p-2">บทบาท</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td class="p-2">{{ user.name }}</td>
+        <td class="p-2">
+          <select [(ngModel)]="user.role" (change)="updateRole(user, user.role)" class="border p-1 rounded">
+            <option *ngFor="let r of roles" [value]="r">{{ r }}</option>
+          </select>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

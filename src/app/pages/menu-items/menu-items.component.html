@@ -1,0 +1,13 @@
+<div class="p-4">
+  <h2 class="text-xl font-bold mb-4">จัดการเมนูหลัก</h2>
+  <div class="mb-4">
+    <input [(ngModel)]="newItem.name" placeholder="ชื่อเมนู" class="border p-2 mr-2 rounded" />
+    <button (click)="addItem()" class="bg-blue-600 text-white px-4 py-2 rounded">เพิ่ม</button>
+  </div>
+  <ul>
+    <li *ngFor="let item of items" class="mb-2">
+      {{ item.name }}
+      <button (click)="deleteItem(item.id)" class="ml-2 text-red-500">ลบ</button>
+    </li>
+  </ul>
+</div>

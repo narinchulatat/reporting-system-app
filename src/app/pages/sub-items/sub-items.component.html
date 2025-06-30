@@ -1,0 +1,17 @@
+<div class="p-4">
+  <h2 class="text-xl font-bold mb-4">จัดการเมนูย่อย</h2>
+  <div class="mb-4 flex flex-wrap gap-2">
+    <input [(ngModel)]="newSubItem.name" placeholder="ชื่อเมนูย่อย" class="border p-2 rounded" />
+    <select [(ngModel)]="newSubItem.menu_item_id" class="border p-2 rounded">
+      <option [value]="null">เลือกเมนูหลัก</option>
+      <option *ngFor="let item of menuItems" [value]="item.id">{{ item.name }}</option>
+    </select>
+    <button (click)="addSubItem()" class="bg-blue-600 text-white px-4 py-2 rounded">เพิ่ม</button>
+  </div>
+  <ul>
+    <li *ngFor="let sub of subItems" class="mb-2">
+      {{ sub.name }} (เมนูหลัก ID: {{ sub.menu_item_id }})
+      <button (click)="deleteSubItem(sub.id)" class="ml-2 text-red-500">ลบ</button>
+    </li>
+  </ul>
+</div>

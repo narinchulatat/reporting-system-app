@@ -1,0 +1,31 @@
+<div class="p-4">
+  <h2 class="text-xl font-bold mb-4">จัดการผู้ใช้งาน</h2>
+  <div class="mb-4">
+    <input [(ngModel)]="newUser.username" placeholder="Username" class="border p-2 mr-2 rounded" />
+    <input [(ngModel)]="newUser.password" placeholder="Password" class="border p-2 mr-2 rounded" />
+    <select [(ngModel)]="newUser.role" class="border p-2 mr-2 rounded">
+      <option value="admin">admin</option>
+      <option value="editor">editor</option>
+      <option value="viewer">viewer</option>
+    </select>
+    <button (click)="addUser()" class="bg-blue-600 text-white px-4 py-2 rounded">เพิ่ม</button>
+  </div>
+  <table class="w-full border">
+    <thead>
+      <tr class="bg-gray-100 text-left">
+        <th class="p-2">Username</th>
+        <th class="p-2">Role</th>
+        <th class="p-2">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td class="p-2">{{ user.username }}</td>
+        <td class="p-2">{{ user.role }}</td>
+        <td class="p-2">
+          <button (click)="deleteUser(user.id)" class="bg-red-500 text-white px-2 py-1 rounded">ลบ</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
